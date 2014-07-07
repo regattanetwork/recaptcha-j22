@@ -864,13 +864,15 @@ Female</td></tr>
           <br />
           <input type="hidden" name="renew_id" value="<?php echo $renew_member[MEMBER_TOKEN] ?>" />
           <?php if (! $HTTP_GET_VARS['edit']) { ?>
-        	<form method="post" action="membership_registration_form2.php">
-        <?php
-          require_once('recaptchalib.php');
-          $publickey = "6LeWyfQSAAAAAMQcObhcteBSKKG4uMxmFEyVP5FE"; // you got this from the signup page
-          echo recaptcha_get_html($publickey);
-        ?>
-        <input type="submit" name="Process my Membership" type="submitNew"/>
+            
+            <?php
+              require_once('recaptchalib.php');
+              $publickey = "6LeWyfQSAAAAAMQcObhcteBSKKG4uMxmFEyVP5FE"; // you got this from the signup page
+              echo recaptcha_get_html($publickey);
+            ?>
+            <input name="Submit" type="submit" id="form_button" value="Process My Application" />
+          <?php }
+          else { ?>
           <input type="hidden" name="edit" value="1" />
           <input name="Submit" type="submit" id="form_button" value="Edit My Application" />
           <?php } ?>
@@ -878,7 +880,7 @@ Female</td></tr>
         </div></td>
       </tr>
       <tr bordercolor="#ffffff">
-        <td height="36" align="center" bgcolor="#FFFFFF">                </td>
+        <td height="36" align="center" bgcolor="#FFFFFF"></td>
       </tr>
       <tr>
         <td height="10"><p class="nav_main_group"><div align="center">&nbsp;</div></p></td>
